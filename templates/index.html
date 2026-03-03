@@ -1,44 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CloudAI</title>
+
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<div class="container">
+<div class="app">
 
-    <header>
-        <h1>☁ CloudAI</h1>
-        <p>Cloud-Based Prompt System</p>
-    </header>
+    <div class="chat-container">
 
-    <!-- CHAT SECTION START -->
-    <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+            ☁ CloudAI – Cloud-Based Prompt System
+        </div>
 
-        {% if user_prompt %}
-            <div class="message user">
-                {{ user_prompt }}
-            </div>
-        {% endif %}
+        <div class="chat-body">
 
-        {% if response %}
-            <div class="message bot">
-                {{ response }}
-            </div>
-        {% else %}
-            <div class="message bot">
-                Hello! Welcome to the Cloud-Based Prompt System.
-            </div>
-        {% endif %}
+            {% if user_prompt %}
+                <div class="chat-row user-row">
+                    <div class="chat-bubble user-bubble">
+                        {{ user_prompt }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if response %}
+                <div class="chat-row bot-row">
+                    <div class="chat-bubble bot-bubble">
+                        {{ response }}
+                    </div>
+                </div>
+            {% else %}
+                <div class="chat-row bot-row">
+                    <div class="chat-bubble bot-bubble">
+                        Hello! Welcome to the Cloud-Based Prompt System.
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+
+        <form method="POST" class="chat-input">
+            <input type="text" name="prompt" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
 
     </div>
-    <!-- CHAT SECTION END -->
-
-    <form method="POST" class="input-area">
-        <input type="text" name="prompt" placeholder="Ask something..." required>
-        <button type="submit">Send</button>
-    </form>
 
 </div>
 
