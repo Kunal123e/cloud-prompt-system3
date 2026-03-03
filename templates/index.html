@@ -1,47 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Cloud AI System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>CloudAI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <!-- Background Particles -->
-    <div id="particles"></div>
+<div class="container">
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">☁ CloudAI</div>
-        <button id="themeToggle">🌙</button>
-    </nav>
+    <header>
+        <h1>☁ CloudAI</h1>
+        <p>Cloud-Based Prompt System</p>
+    </header>
 
-    <!-- Chat Container -->
-    <div class="chat-container">
+    <!-- CHAT SECTION START -->
+    <div class="chat-box" id="chatBox">
 
-        <div class="chat-box" id="chatBox">
-            {% if response %}
-            <div class="message bot">
-                <div class="typing" id="typingEffect">{{ response }}</div>
+        {% if user_prompt %}
+            <div class="message user">
+                {{ user_prompt }}
             </div>
-            {% endif %}
-        </div>
+        {% endif %}
 
-        <form method="POST" class="input-area">
-            <input type="text" name="prompt" placeholder="Ask something..." required>
-            <button type="submit">Send</button>
-        </form>
+        {% if response %}
+            <div class="message bot">
+                {{ response }}
+            </div>
+        {% else %}
+            <div class="message bot">
+                Hello! Welcome to the Cloud-Based Prompt System.
+            </div>
+        {% endif %}
 
     </div>
+    <!-- CHAT SECTION END -->
 
-    <!-- Footer -->
-    <footer>
-        Built with Flask | Cloud-Based Prompt System
-    </footer>
+    <form method="POST" class="input-area">
+        <input type="text" name="prompt" placeholder="Ask something..." required>
+        <button type="submit">Send</button>
+    </form>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</div>
 
 </body>
 </html>

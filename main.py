@@ -32,13 +32,16 @@ def process_prompt(prompt):
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+    user_prompt = ""
     response = ""
 
     if request.method == "POST":
         user_prompt = request.form.get("prompt", "")
         response = process_prompt(user_prompt)
 
-    return render_template("index.html", response=response)
+    return render_template("index.html",
+                           response=response,
+                           user_prompt=user_prompt)
 
 
 if __name__ == "__main__":
