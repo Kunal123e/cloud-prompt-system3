@@ -35,12 +35,11 @@ def home():
     response = ""
 
     if request.method == "POST":
-    user_prompt = request.form.get("prompt")
-    response = process_prompt(user_prompt)
+        user_prompt = request.form.get("prompt", "")
+        response = process_prompt(user_prompt)
 
     return render_template("index.html", response=response)
 
 
-# For local testing only (Render uses Gunicorn)
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
