@@ -1,0 +1,40 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9f1f7;
+}
+
+/* Main container */
+.container {
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Input box */
+input {
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Submit button */
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Response box */
+.output {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+}
