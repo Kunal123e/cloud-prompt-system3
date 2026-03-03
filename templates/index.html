@@ -1,43 +1,47 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Cloud-Based Prompt System</title>
-    
-    <!-- Link CSS file -->
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>Cloud AI System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 
-<div class="container">
-    
-    <h1>Cloud-Based Prompt System</h1>
-    
-    <!-- Form to take user input -->
-    <form method="POST">
-        
-        <!-- Input box -->
-        <input type="text" name="prompt" placeholder="Enter your prompt here..." required>
-        
-        <!-- Submit button -->
-        <button type="submit">Submit</button>
-    
-    </form>
+    <!-- Background Particles -->
+    <div id="particles"></div>
 
-    <!-- Display response if available -->
-    {% if response %}
-    <div class="output">
-        <h3>Response:</h3>
-        <p>{{ response }}</p>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">☁ CloudAI</div>
+        <button id="themeToggle">🌙</button>
+    </nav>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+
+        <div class="chat-box" id="chatBox">
+            {% if response %}
+            <div class="message bot">
+                <div class="typing" id="typingEffect">{{ response }}</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <form method="POST" class="input-area">
+            <input type="text" name="prompt" placeholder="Ask something..." required>
+            <button type="submit">Send</button>
+        </form>
+
     </div>
-    {% endif %}
 
-</div>
+    <!-- Footer -->
+    <footer>
+        Built with Flask | Cloud-Based Prompt System
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
-
-
-
-
-
