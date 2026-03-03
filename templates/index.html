@@ -1,0 +1,43 @@
+
+<html>
+<head>
+    <title>Cloud-Based Prompt System</title>
+    
+    <!-- Link CSS file -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+    
+    <h1>Cloud-Based Prompt System</h1>
+    
+    <!-- Form to take user input -->
+    <form method="POST">
+        
+        <!-- Input box -->
+        <input type="text" name="prompt" placeholder="Enter your prompt here..." required>
+        
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    
+    </form>
+
+    <!-- Display response if available -->
+    {% if response %}
+    <div class="output">
+        <h3>Response:</h3>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
