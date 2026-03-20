@@ -1,61 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudAI</title>
 
-    <!-- Modern Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Online Voting System</title>
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
-<div class="app">
+<div class="container">
 
-    <div class="chat-container">
+<div class="card">
 
-        <div class="chat-header">
-            ☁ CloudAI – Cloud-Based Prompt System
-        </div>
+<h2>Online Voting System</h2>
 
-        <div class="chat-body">
+<form action="/vote" method="POST">
 
-            {% if user_prompt %}
-                <div class="chat-row user-row">
-                    <div class="chat-bubble user-bubble">
-                        {{ user_prompt }}
-                    </div>
-                </div>
-            {% endif %}
+<label>Your Name</label>
+<input type="text" name="name" required>
 
-            {% if response %}
-                <div class="chat-row bot-row">
-                    <div class="chat-bubble bot-bubble">
-                        {{ response }}
-                    </div>
-                </div>
-            {% else %}
-                <div class="chat-row bot-row">
-                    <div class="chat-bubble bot-bubble">
-                        Hello! Welcome to the Cloud-Based Prompt System.
-                    </div>
-                </div>
-            {% endif %}
+<label>Select Candidate</label>
 
-        </div>
+<select name="candidate">
 
-        <form method="POST" class="chat-input">
-            <input type="text" name="prompt" placeholder="Type your message..." required>
-            <button type="submit">Send</button>
-        </form>
+<option value="Candidate A">Candidate A</option>
+<option value="Candidate B">Candidate B</option>
+<option value="Candidate C">Candidate C</option>
 
-    </div>
+</select>
+
+<button type="submit">Submit Vote</button>
+
+</form>
+
+<br>
+
+<a href="/results">View Results</a>
+
+</div>
 
 </div>
 
 </body>
+
 </html>
